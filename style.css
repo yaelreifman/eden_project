@@ -881,3 +881,61 @@ body.acc-readable-font {
   justify-content: center;
   gap: 6px;
 }
+
+/* ===== Mobile fix: Services icons/cards ===== */
+* { box-sizing: border-box; }
+
+.services { overflow-x: hidden; }
+
+.services-grid {
+  display: grid;
+  gap: 16px;
+}
+
+/* Desktop default (אם כבר מוגדר אצלך אפשר להשאיר, זה רק ליתר ביטחון) */
+@media (min-width: 901px) {
+  .services-grid { grid-template-columns: repeat(4, 1fr); }
+}
+
+/* Tablet */
+@media (max-width: 900px) {
+  .services-grid { grid-template-columns: repeat(3, 1fr); }
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+  .services-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 14px;
+  }
+
+  .service-card {
+    width: 100%;
+    min-width: 0;
+    padding: 14px 10px;
+    border-radius: 18px;
+    text-align: center;
+  }
+
+  .service-icon {
+    width: 76px;
+    height: 76px;
+    margin: 0 auto 10px;
+    border-radius: 999px;
+    display: grid;
+    place-items: center;
+  }
+
+  .service-icon i {
+    font-size: 28px;
+    line-height: 1;
+  }
+
+  .service-card h3 {
+    font-size: 0.95rem;
+    line-height: 1.25;
+    margin: 0;
+    /* שומר על גובה אחיד גם כשיש טקסט ארוך */
+    min-height: 2.6em;
+  }
+}
